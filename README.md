@@ -1,1 +1,1 @@
-# Spremno za upload
+# 2. zadaća iz kolegija Razvoj web aplikacija
