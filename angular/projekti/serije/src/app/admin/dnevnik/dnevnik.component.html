@@ -1,0 +1,53 @@
+<h2>Dnevnik</h2>
+<p>Na stranici je moguće vidjeti sve dnevničke zapise.</p>
+
+<fieldset>
+    <legend>Parametri za filtriranje</legend>
+    Sortiranje: <select #sortInput>
+        <option value="d">Po datumu silazno</option>
+        <option value="m">Po metodi (po redu: GET, POST, PUT, DELETE)</option>
+    </select><br>
+    Početni datum: <input #pDatumInput type="date"><br>
+    Završni datum: <input #zDatumInput type="date"><br>
+    Početno vrijeme: <input #pVrijemeInput type="time"><br>
+    Završno vrijeme: <input #zVrijemeInput type="time"><br>
+</fieldset>
+
+<button (click)="primijeniParametre(sortInput.value, pDatumInput.value, zDatumInput.value, pVrijemeInput.value, zVrijemeInput.value)">Primijeni</button>
+<button (click)="osvjeziParametre()">Osvježi</button>
+
+<h3>Dnevnički zapisi</h3>
+
+<div #dnevnikTablica class="centriraj">
+    <div #stranicenje *ngIf="dnevnickiZapisi.length > 0 && brojStranica > 0">
+        <img (click)="dohvatiDnevnickeZapiseStranica(1)" src="./././assets/slike/strjelicaLL.png" alt="Prva stranica">
+        <img (click)="dohvatiDnevnickeZapiseStranica((stranica > 1 ? (stranica - 1) : 1))" src="./././assets/slike/strjelicaL.png" alt="Prethodna stranica">
+        Stranica {{stranica}}/{{brojStranica}}
+        <img (click)="dohvatiDnevnickeZapiseStranica((stranica < brojStranica ? (stranica + 1) : brojStranica))" src="./././assets/slike/strjelicaR.png" alt="Sljedeća stranica">
+        <img (click)="dohvatiDnevnickeZapiseStranica(brojStranica)" src="./././assets/slike/strjelicaRR.png" alt="Zadnja stranica">
+    </div>
+
+    <table class="adminTablica" id="dnevnikTablica">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Korime</th>
+                <th>Datum i vrijeme</th>
+                <th>Vrsta zahtjeva</th>
+                <th>Resurs</th>
+                <th>Tijelo</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr *ngFor="let z of dnevnickiZapisi">
+                <td>{{z.id}}</td>
+                <td>{{z.korime}}</td>
+                <td>{{parsirajDatumZaPrikaz(z.datum_i_vrijeme)}}</td>
+                <td>{{z.vrsta_zahtjeva}}</td>
+                <td>{{z.resurs}}</td>
+                <td>{{z.tijelo != null ? z.tijelo : ""}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

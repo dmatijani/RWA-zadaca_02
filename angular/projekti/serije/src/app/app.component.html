@@ -1,0 +1,38 @@
+<header><h1>Filmoteka</h1></header>
+
+<nav>
+    <div id="navigacija">
+        <ul>
+            <li *ngIf="postojiPrijava()"><a routerLink="/pocetna" (click)="prebaciNa('pocetna')">Početna</a></li>
+            <li *ngIf="postojiPrijava()"><a routerLink="/favoriti" (click)="prebaciNa('favoriti')">Favoriti</a></li>
+            <li><a routerLink="/dokumentacija" (click)="prebaciNa('dokumentacija')">Dokumentacija</a></li>
+        
+            <li style="float: right;" *ngIf="postojiPrijava()"><a (click)="odjaviKorisnika()">Odjava</a></li>
+            <li style="float: right;" *ngIf="postojiPrijava()"><a routerLink="/profil" (click)="prebaciNa('profil')">Profil</a></li>
+            <li style="float: right;" *ngIf="postojiPrijava()"><span>Prijavljen: <span style="color: red;">{{korime}}</span></span></li>
+            <li style="float: right;" *ngIf="!postojiPrijava()"><a routerLink="/prijava" (click)="prebaciNa('prijava')">Prijava</a></li>
+        </ul>
+    
+        <hr *ngIf="korisnikAdmin()">
+
+        <ul *ngIf="korisnikAdmin()">
+            <li style="float: right;"><a routerLink="/admin/registracija-novog-korisnika" (click)="prebaciNa('admin/registracija-novog-korisnika')">Registriraj novog korisnika</a></li>
+            <li style="float: right;"><a routerLink="/admin/svi-korisnici" (click)="prebaciNa('admin/svi-korisnici')">Svi korisnici</a></li>
+            <li style="float: right;"><a routerLink="/admin/dnevnik" (click)="prebaciNa('admin/dnevnik')">Dnevnik</a></li>
+            <li style="float: right;"><span class="kontrolnaPloca">Kontrolna ploča</span></li>
+        </ul>
+    </div>
+    
+</nav>
+
+<div id="sadrzaj">
+    <main>
+        <router-outlet></router-outlet>
+    </main>
+    
+    <footer>
+        &copy; 2023, 2024. David Matijanić<br>
+        <a href="https://www.themoviedb.org/"><img width="300" src="../assets/slike/tmdbLogo.svg" alt="TMDB"></a>
+    </footer>
+</div>
+

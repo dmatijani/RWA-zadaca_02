@@ -1,0 +1,12 @@
+<h2>Favoriti</h2>
+<p>Pretražite serije <a routerLink="/pocetna">ovdje</a> te će se, nakon dodavanja u favorite, ovdje prikazati.</p>
+<ul>
+    <li *ngFor="let f of favoriti">
+        <div class="prikazSerije">
+            <h4>{{f.naziv}}</h4>
+            <p>{{f.opis}}</p>
+
+            <a [routerLink]="['/favoriti', f.id]">Detalji serije</a>
+        </div>
+    </li>
+</ul>

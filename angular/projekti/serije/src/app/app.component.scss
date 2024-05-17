@@ -1,0 +1,71 @@
+header {
+    text-align: center;
+    align-items: center;
+    margin: 0px;
+    padding: 50px;
+    color: #EEEEEE;
+    background-image: url("../assets/pozadine/banner.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+#navigacija {
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: #333;
+    }
+
+    li {
+        float: left;
+        padding: 14px 16px;
+
+        a {
+            display: block;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        span {
+            color: white;
+            font-weight: bold;
+
+            span {
+                font-style: italic;
+                color: red;
+            }
+        }
+
+        a:hover {
+            color: red;
+        }
+
+        .kontrolnaPloca {
+            color: red;
+        }
+    }
+}
+
+#sadrzaj {
+    display: flex;
+    flex-direction: column;
+    min-height: calc(100vh - 80px);
+    background-image: url("../assets/pozadine/pozadina.png");
+    background-repeat: repeat;
+    color: #EEEEEE;
+    margin: 0px;
+    background-color: #202020;
+
+    main {
+        flex: 1;
+        margin: 32px;
+    }
+
+    footer {
+        padding: 10px;
+        height: 60px;
+    }
+}

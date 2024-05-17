@@ -1,0 +1,19 @@
+{
+  "name": "web-stranica",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.mjs",
+  "scripts": {
+    "pripremi": "npm link --save express sqlite3 express-session cors totp-generator",
+    "start": "node server.mjs rwa_dmatijani21_conf.csv",
+    "angular_build": "rm -r angular/* && cd ../angular && ng build serije && cd ../server && node server.mjs rwa_dmatijani21_conf.csv",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "David Matijanić",
+  "license": "ISC",
+  "dependencies": {
+    "express": "file:../../../../../../usr/lib/node_modules/express",
+    "express-session": "file:../../../../../../usr/lib/node_modules/express-session",
+    "sqlite3": "file:../../../../../../usr/lib/node_modules/sqlite3"
+  }
+}

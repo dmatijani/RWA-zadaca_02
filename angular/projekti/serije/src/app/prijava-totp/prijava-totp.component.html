@@ -1,0 +1,22 @@
+<h2>Dvorazinska autentifikacija</h2>
+<p>Korisnik ima uključenu dvorazinsku autentifikaciju. Potrebno je unijeti odgovarajući TOTP.</p>
+
+<span style="font-weight: bold; color: red;">
+    Podaci za prijavu kao običan korisnik sa TOTP:
+    <ul>
+        <li>Korisničko ime: <span style="font-style: italic;">totpobican</span></li>
+        <li>Lozinka: <span style="font-style: italic;">rwa</span></li>
+        <li>TOTP šifra (koristiti KeePassXC): <span style="font-style: italic;">AAAAKAAAAAAAIAAAARAAKAZAAMCRKCAFAACAOCIJAAARAAAGARAAEARIAAAAOAIAARBRACIJAZBAABZAAMEAIAAAAAAAEAAEAABAMAZ</span></li>
+        <li>TOTP: 6 znamenki, 60 sekundi, SHA-512</li>
+    </ul>
+</span>
+
+<fieldset>
+    <legend>Korisnički podaci</legend>
+    <label for="korime">TOTP:</label>
+    <input type="text" id="totp" name="totp" placeholder="6 znamenki, SHA-512, 60s" #totp><br>
+</fieldset>
+<button id="btnPosalji" (click)="prijaviKorisnika(totp.value)" value="posalji">Prijavi se</button>
+<button id="btnNatrag" (click)="odiNatragNaPrijavu()" value="odiNatrag">Natrag na prijavu</button>
+
+<div id="porukaGreske" style="color: red">{{porukaGreske}}</div>

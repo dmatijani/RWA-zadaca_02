@@ -1,0 +1,262 @@
+<h2>Dokumentacija</h2>
+<p>Sljedeća stranica sadrži podatke o autoru kao i podatke o tome što je napravljeno, a što nije.</p>
+
+<h3>Autor</h3>
+<img src="../../assets/slike/autor.jpg" alt="Slika autora">
+<ul>
+    <li>Ime i prezime: David Matijanić</li>
+    <li>Foi e-mail: <a href="mailto:dmatijani21@student.foi.hr">dmatijani21&#64;student.foi.hr</a></li>
+</ul>
+
+<h3>ERA model</h3>
+<img (click)="odiNaSliku()" *ngIf="era_slika_putanja != undefined" [src]="era_slika_putanja" alt="ERA model baze podataka" id="slikaERAModela" width="200">
+
+<h3>REST servis</h3>
+<p>Svi zahtjevi traže validan JWT, osim baza/korisnici/<span style="font-style: italic">&#123;korime&#125;</span>/prijava.</p>
+<p>Ukoliko se zatraži resurs koji nije u specifikaciji, vraća se "nema resursa", no mora biti na /baza, ako je recimo netko zatražio /galerija (ta stranica ne postoji), samo ga vrati na početnu.</p>
+<p style="font-weight: bold;">Zadaća 2: dodan je REST servis za pristup TMDB servisu preko našeg servera, dostupan na <span style="font-style: italic">/baza/serije_pretrazivanje/&#123;kljucna_rijec&#125;</span> i <span style="font-style: italic">/baza/detalji_serije/&#123;tmdb_id_serije&#125;</span>.</p>
+
+<div class="centriraj">
+    <table class='adminTablica' id="dokumentacijaTablica1">
+        <thead>
+            <tr>
+                <th>Resurs<br>Parametri</th>
+                <th>GET<br>Čitanje</th>
+                <th>POST<br>Kreiranje</th>
+                <th>PUT<br>Ažuriranje</th>
+                <th>DELETE<br>Brisanje</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>baza/serije_pretrazivanje/<span style="font-style: italic">&#123;tekst&#125;</span></td>
+                <td class="napravljeno1">Napravljeno. Isto kao i na zadaći 1.</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>baza/detalji_serije/<span style="font-style: italic">&#123;id&#125;</span></td>
+                <td class="napravljeno1">Napravljeno. Isto kao i na zadaći 1.</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>baza/korisnici</td>
+                <td class="napravljeno1">Napravljeno. Isto kao i na zadaći 1.</td>
+                <td class="napravljeno1">Napravljeno.<br><span style="font-weight: bold">Za razliku od zadaće 2, uz korisnika šalje se podatak "recaptchatoken".<br>"korisnik" su podaci koji su se slali u zadaći 1.</span></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>baza/korisnici/<span style="font-style: italic">&#123;korime&#125;</span></td>
+                <td class="napravljeno2">Napravljeno. Isto kao i na zadaći 1.</td>
+                <td class="napravljeno2">Napravljeno. Isto kao i na zadaći 1.</td>
+                <td class="napravljeno2">Napravljeno.<br><span style="font-weight: bold">Za razliku od zadaće 2, uz korisnika šalje se podatak "recaptchatoken".<br>"korisnik" su podaci koji su se slali u zadaći 1.</span></td>
+                <td class="napravljeno2">Napravljeno. Isto kao i na zadaći 1.</td>
+            </tr>
+            <tr>
+                <td>baza/korisnici/<span style="font-style: italic">&#123;korime&#125;</span>/prijava</td>
+                <td class="napravljeno1">Napravljeno. Isto kao i na zadaći 1,<br>ne traži JWT</td>
+                <td class="napravljeno1">Napravljeno, ne traži JWT.<br><span style="font-weight: bold">Za razliku od zadaće 1, uz korime i lozinku šalje se podatak "recaptchatoken".<br>Ako taj korisnik ima uključenu dvorazinsku autentifikaciju, a ne pošalje se podatak "totp", vraća statusni kod <span style="font-style: italic;">403</span> i odgovor: <span style="font-style: italic;">&#123;"opis": "Potreban TOTP"&#125;</span>.<br>Tako Angular aplikacija zna da je potrebno upisati te poslati odgovarajući TOTP i prikazuje odgovarajuću komponentu.</span></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>baza/favoriti</td>
+                <td class="napravljeno2">Napravljeno. Isto kao i na zadaći 1.</td>
+                <td class="napravljeno2">Napravljeno. Isto kao i na zadaći 1.</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>baza/favoriti/<span style="font-style: italic">&#123;id&#125;</span></td>
+                <td class="napravljeno1">Napravljeno. Isto kao i na zadaći 1.</td>
+                <td class="napravljeno1">Napravljeno. Isto kao i na zadaći 1.</td>
+                <td class="napravljeno1">Napravljeno. Isto kao i na zadaći 1.</td>
+                <td class="napravljeno1">Napravljeno. Isto kao i na zadaći 1.</td>
+            </tr>
+            <tr>
+                <td>baza/dnevnik?<span style="font-style: italic">&#123;parametri...&#125;</span></td>
+                <td class="napravljeno2"><p>Napravljeno. Isto kao i na zadaći 1,<br>rade svi parametri<br>osim podataka, vraća informacije o stranicama radi implementacije straničenja</p></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<h3>Web aplikacija</h3>
+<p>Aplikacija je po funkcionalnostima identična prvoj zadaći, samo što je napisana u Angularu.</p>
+<p style="font-weight: bold;">Kada se kaže stranice, misli se na Angular komponente, a poveznice samo mijenjaju rute.</p>
+<p>Sve stranice sadrže sve funkcionalnosti, osim ako nije posebno navedeno.</p>
+<p>Svi pogledi su implementirani i vrijede uloge (admin > korisnik > gost). Svaka uloga više razine ima pristup pogledima niže razine.</p>
+<p>NAPOMENA: iako se naziv stranice može kliknuti kako bi nas odveo na tu stranicu, ako nismo prijavljeni, nećemo moći otići na odgovarajuće stranice (npr. na Profil ili Favoriti ako smo samo gost, ili na Korisnici ako nismo prijavljeni kao administrator.). Za pregled svih stranica preopručuje se prijava kao administrator.</p>
+
+<div class="centriraj">
+    <table class='adminTablica' id="dokumentacijaTablica2">
+        <thead>
+            <tr>
+                <th>Uloga</th>
+                <th>Stranica/e</th>
+                <th>Opis</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="napravljeno1">Gost</td>
+                <td class="napravljeno1"><a routerLink="/pocetna">Početna</a></td>
+                <td class="napravljeno1">Napravljeno, za razliku od zadaće 1, ne može se pristupiti ako nismo prijavljeni</td>
+            </tr>
+            <tr>
+                <td class="napravljeno2">Gost/<br>Korisnik</td>
+                <td class="napravljeno2">SerijaDetalji</td>
+                <td class="napravljeno2">Napravljeno, za razliku od zadaće 1, zasebna je stranica</td>
+            </tr>
+            <tr>
+                <td class="napravljeno1">Gost</td>
+                <td class="napravljeno1"><a routerLink="/dokumentacija">Dokumentacija</a></td>
+                <td class="napravljeno1">Napravljeno</td>
+            </tr>
+            <tr>
+                <td class="napravljeno2">Gost</td>
+                <td class="napravljeno2"><a routerLink="/prijava">Prijava</a> (pošalje na početnu ako smo već prijavljeni), Odjava</td>
+                <td class="napravljeno2">Napravljeno</td>
+            </tr>
+            <tr>
+                <td class="napravljeno1">Korisnik</td>
+                <td class="napravljeno1"><a routerLink="/profil">Profil</a></td>
+                <td class="napravljeno1">Napravljeno</td>
+            </tr>
+            <tr>
+                <td class="napravljeno2">Korisnik</td>
+                <td class="napravljeno2"><a routerLink="/favoriti">Favoriti</a></td>
+                <td class="napravljeno2">Napravljeno</td>
+            </tr>
+            <tr>
+                <td class="napravljeno1">Korisnik</td>
+                <td class="napravljeno1"><a routerLink="/favoriti/1">FavoritiDetalji</a> (pošalje na favorite ako favorit nije u favoritima prijavljenog korisnika)</td>
+                <td class="napravljeno1">Napravljeno, ako id favorita (prosljeđuje se kao parametar) nije u favoritima prijavljenog korisnika, prikazat će sve favorite.</td>
+            </tr>
+            <tr>
+                <td class="napravljeno2">Admin</td>
+                <td class="napravljeno2"><a routerLink="/admin/registracija-novog-korisnika">Registracija</a></td>
+                <td class="napravljeno2">Napravljeno</td>
+            </tr>
+            <tr>
+                <td class="napravljeno1">Admin</td>
+                <td class="napravljeno1"><a routerLink="/admin/svi-korisnici">Korisnici</a></td>
+                <td class="napravljeno1">Napravljeno</td>
+            </tr>
+            <tr>
+                <td class="napravljeno2">Admin</td>
+                <td class="napravljeno2"><a routerLink="/admin/dnevnik">Dnevnik</a></td>
+                <td class="napravljeno2">Napravljeno</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<h3>Zadaća 2</h3>
+<p>Ovdje su opisani svi koraci zadaće 2.</p>
+
+<div class="centriraj">
+    <table class='adminTablica' id="dokumentacijaTablica2">
+        <thead>
+            <tr>
+                <th>Korak</th>
+                <th>Status</th>
+                <th>Opis</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="napravljeno1">1.</td>
+                <td class="napravljeno1">Napravljeno.</td>
+                <td class="napravljeno1">Tablice od zadaće 1 su ažurirane. Kod tablice sa popisom REST servisa, podebljani dijelovi označuju da je nešto mijenjano ili dodano</td>
+            </tr>
+            <tr>
+                <td class="napravljeno2">2.</td>
+                <td class="napravljeno2">Napravljeno.</td>
+                <td class="napravljeno2">Odnosi se na ovu tablicu. Ako nešto nije napravljeno, označeno je crveno.</td>
+            </tr>
+            <tr>
+                <td class="napravljeno1">3.</td>
+                <td class="napravljeno1">Napravljeno.</td>
+                <td class="napravljeno1">Napravljeno <span style="font-style: italic;">npm start</span> pokreće server koji poslužuje buildanu Angular aplikaciju. <span style="font-style: italic;">npm angular_build</span> će izgraditi Angular aplikaciju u odgovarajući poddirektorij direktorija server. <span style="font-style: italic;">npm pripremi</span> povezuje node module.</td>
+            </tr>
+            <tr>
+                <td class="napravljeno2">4.</td>
+                <td class="napravljeno2">Napravljeno.</td>
+                <td class="napravljeno2">Server se ne pokreće ukoliko nisu uneseni određeni ključevi za TMDB servis i reCaptcha servis. Ispisuje koji su to točno ključevi koje treba unijeti.</td>
+            </tr>
+            <tr>
+                <td class="napravljeno1">5.</td>
+                <td class="napravljeno1">Napravljeno.</td>
+                <td class="napravljeno1">Cijela aplikacija je prebačena u Angular.</td>
+            </tr>
+            <tr>
+                <td class="napravljeno2">6.</td>
+                <td class="napravljeno2">Napravljeno.</td>
+                <td class="napravljeno2">Pozadinski dio web aplikacije poslužuje na korijenskoj putanji izgrađenu Angular aplikaciju. Aplikacija je unaprijed izgrađena.</td>
+            </tr>
+            <tr>
+                <td class="napravljeno1">7.</td>
+                <td class="napravljeno1">Napravljeno.</td>
+                <td class="napravljeno1">Dokumentacija je ugrađena u Angular aplikaciju.</td>
+            </tr>
+            <tr>
+                <td class="napravljeno2">8.</td>
+                <td class="napravljeno2">Napravljeno.</td>
+                <td class="napravljeno2">REST servis je proširen radi određenih funkcionalnosti, npr. TOTP. Dodana su dva nova REST servisa opisana u prvoj tablici. Ta 2 nova servisa su: <span style="font-style: italic;">/baza/serije_pretrazivanje/:kljucna_rijec</span> i <span style="font-style: italic;">/baza/detalji_serije/:tmdb_id</span>.</td>
+            </tr>
+            <tr>
+                <td class="napravljeno1">9.</td>
+                <td class="napravljeno1">Napravljeno.</td>
+                <td class="napravljeno1">Svi dijelovi osim posluživanja Angular aplikacije i prijave traže validan JWT.</td>
+            </tr>
+            <tr>
+                <td class="napravljeno2">10.</td>
+                <td class="napravljeno2">Napravljeno.</td>
+                <td class="napravljeno2">Informacije o bazičnoj adresi i portu za pozadinski dio upisani su u environment datoteke.</td>
+            </tr>
+            <tr>
+                <td class="napravljeno1">11.</td>
+                <td class="napravljeno1">Napravljeno.</td>
+                <td class="napravljeno1">Dizajn je napisan u SCSS sintaksi. Dobar primjer je datoteka <span style="font-style: italic;">styles.scss</span>.</td>
+            </tr>
+            <tr>
+                <td class="napravljeno2">12.</td>
+                <td class="napravljeno2">Napravljeno.</td>
+                <td class="napravljeno2">Dodan je reCaptcha v3 sustav na 3 obrazca: prijava, registracija i ažuriranje profila. Moguća je provjera tako što se u donjem-desnom kutu nalazi reCaptcha ikona, a server za svaki zahtjev od ta 3 koji dobije, ispisuje reCaptcha odgovore.</td>
+            </tr>
+            <tr>
+                <td class="napravljeno1">13.</td>
+                <td class="napravljeno1">Napravljeno.</td>
+                <td class="napravljeno1">Pri ažuriranju profila moguće je uključiti dvorazinsku autentifikaciju. TOTP ključ se prikazuje samo jednom, i to prilikom prvog uključivanja dvorazinske autentifikacije. Dvorazinsku autentifikaciju moguće je i isključiti.</td>
+            </tr>
+            <tr>
+                <td class="napravljeno2">14.</td>
+                <td class="napravljeno2">Napravljeno.</td>
+                <td class="napravljeno2">Prijava se odvija u 2 koraka ukoliko je uključena dvorazinska autentifikacija. To se može uključiti za svakog korisnika, i ako se isključi (prethodni korak), prijava se odvija normalno, kao i prije uključivanja. Postoji već napravljen korisnik u sustavu koji ima uključenu dvorazinsku autentifikaciju te su njegovi podaci upisani kod obrasca za prijavu, kao i podaci obična 2 korisnika bez TOTP.</td>
+            </tr>
+            <tr>
+                <td class="nijeNapravljeno1">15.</td>
+                <td class="nijeNapravljeno1">Nije napravljeno.</td>
+                <td class="nijeNapravljeno1"></td>
+            </tr>
+            <tr>
+                <td class="nijeNapravljeno2">16.</td>
+                <td class="nijeNapravljeno2">Nije napravljeno.</td>
+                <td class="nijeNapravljeno2"></td>
+            </tr>
+            <tr>
+                <td class="napravljeno1">17.</td>
+                <td class="napravljeno1">Napravljeno.</td>
+                <td class="napravljeno1">Postoje korisnici iz svake uloge (običan i administrator) koji nemaju TOTP te su njihovi podaci navedeni kod obrasca za prijavu. Napravljen je dodatno i jedan korisnik koji već ima uključenu dvorazinsku autentifikaciju.</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

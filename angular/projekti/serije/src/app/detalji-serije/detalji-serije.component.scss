@@ -1,0 +1,39 @@
+.detaljiSerije {
+    align-items: center;
+    border-radius: 16px;
+    border: 12px solid rgb(61, 61, 61);
+    background-color: rgb(61, 61, 61);
+    display: flex;
+    flex-direction: column;
+
+    * {
+        margin: 10px;
+    }
+
+    button {
+        margin: 4px;
+    }
+
+    a {
+        margin: 0px;
+    }
+
+    .osimGumba {
+        align-items: center;
+        display: flex;
+        flex-direction: row;
+
+        .vertikalno {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .pola {
+            width: 50%;
+        }
+    }
+
+    img {
+        margin-right: 32px;
+    }
+}

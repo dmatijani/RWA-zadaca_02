@@ -1,0 +1,36 @@
+<h2>Dobrodošao, <span style="font-style: italic;">{{korime}}<span *ngIf="ime != ''"> - </span>{{ime}} {{prezime}}</span></h2>
+
+<h4>Email:</h4>
+<span *ngIf="email != ''">{{email}}</span>
+<span *ngIf="email == ''" style="color: gray;">nije unesen</span>
+
+<h4>Telefon:</h4>
+<span *ngIf="telefon != ''">{{telefon}}</span>
+<span *ngIf="telefon == ''" style="color: gray;">nije unesen</span>
+
+<h4>Adresa:</h4>
+<span *ngIf="adresa != ''">{{adresa}}</span>
+<span *ngIf="adresa == ''" style="color: gray;">nije unesena</span>
+
+<h4>Web stranica:</h4>
+<span *ngIf="web_stranica != ''">{{web_stranica}}</span>
+<span *ngIf="web_stranica == ''" style="color: gray;">nije unesena</span>
+
+<h2>Ažuriranje podataka</h2>
+<p>Ovdje je moguće ažurirati podatke.</p>
+<div>
+    <fieldset>
+        <legend>Novi podaci</legend>
+        Ime (može i nadimak): <input value={{ime}} #imeInput type="text" placeholder="Ime"><br>
+        Prezime (ako je ime osobno): <input value={{prezime}} #prezimeInput type="text" placeholder="Prezime"><br>
+        Telefon: <input value={{telefon}} #telefonInput type="text" placeholder="Telefon"><br>
+        Adresa: <input value={{adresa}} #adresaInput type="text" placeholder="Adresa"><br>
+        Web stranica (ako imate): <input value={{web_stranica}} #webStranicaInput type="text" placeholder="Web stranica"><br>
+        Dvorazinska autentifikacija: <input [checked]="dvorazinska_autentifikacija" #dvorazinskaInput type="checkbox">
+    </fieldset>
+
+    <button (click)="posaljiPodatkeZaAzuriranje(imeInput.value, prezimeInput.value, telefonInput.value, adresaInput.value, webStranicaInput.value, dvorazinskaInput.checked)">Ažuriraj podatke</button>
+</div>
+
+<div *ngIf="tajniKljuc != ''" id="porukaTajnaSifra" style="font-weight: bold;">Uključili ste dvorazinsku autentifikaciju, zapamtite tajni ključ, jer se samo sada prikazuje:<br><span style="color: green;">{{tajniKljuc}}</span></div>
+<div id="porukaGreske" style="color: red">{{porukaGreske}}</div>

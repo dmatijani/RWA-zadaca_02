@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en" data-critters-container>
+<head>
+  <meta charset="utf-8">
+  <title>Serije</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <script>
+    fetch("http://localhost:12423/recaptchajavnikljuc") // Promijeniti po potrebi
+      .then(odgovor => odgovor.json())
+      .then(podaci => {
+        let kljuc = podaci.kljuc;
+
+        let script = document.createElement('script');
+        script.src = `https://www.google.com/recaptcha/api.js?render=${kljuc}`;
+        document.head.appendChild(script);
+      })
+      .catch(error => console.error('Došlo je do greške: ', error));
+</script>
+
+<style>*{font-family:arial;margin:0}
+</style><link rel="stylesheet" href="styles-OIRTP52N.css" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="styles-OIRTP52N.css"></noscript></head>
+<body>
+  <app-root></app-root>
+<script src="polyfills-LZBJRJJE.js" type="module"></script><script src="main-SWB3JAYP.js" type="module"></script></body>
+</html>

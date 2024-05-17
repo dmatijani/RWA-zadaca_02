@@ -1,0 +1,23 @@
+<h2>Registracija novog korisnika</h2>
+<p>Na ovoj stranici moguće je registrirati novog korisnika.</p>
+
+<fieldset>
+    <legend>Podaci novog korisnika</legend>
+    Korisničko ime: <input #korimeInput type="text" placeholder="Korisničko ime (obavezno)"><br>
+    Lozinka: <input #lozinkaInput type="password" placeholder="Lozinka (obavezna)"><br>
+    Ponovi lozinku: <input #lozinkaPonovnoInput type="password" placeholder="Mora biti jednaka"><br>
+    Ime: <input #imeInput type="text" placeholder="Ime"><br>
+    Prezime: <input #prezimeInput type="text" placeholder="Prezime"><br>
+    Email: <input #emailInput type="text" placeholder="Email (obavezan)"><br>
+    Telefon: <input #telefonInput type="text" placeholder="Telefon"><br>
+    Adresa: <input #adresaInput type="text" placeholder="Adresa"><br>
+    Web stranica: <input #webStranicaInput type="text" placeholder="Web stranica"><br>
+    Administrator? <input #adminBoolInput type="checkbox">
+</fieldset>
+
+<button (click)="registrirajNovogKorisnika(korimeInput.value, lozinkaInput.value, lozinkaPonovnoInput.value, imeInput.value, prezimeInput.value, emailInput.value, telefonInput.value, adresaInput.value, webStranicaInput.value, adminBoolInput.checked)">Registriraj novog korisnika</button>
+
+<div style="color: green;">{{porukaUspjeha}}</div>
+<ul style="color: red;">
+    <li *ngFor="let p of porukeGreske">{{p}}</li>
+</ul>

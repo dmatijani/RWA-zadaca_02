@@ -1,0 +1,22 @@
+Pretražite serije: <input #nazivSerije type="text" placeholder="Ime serije" (keyup)="dohvatiSerijePoKljucnojRijeci(nazivSerije.value)" name="nazivSerije" id="nazivSerije">
+
+<h2>Dohvaćene serije</h2>
+
+<div #stranicenje *ngIf="kljucnaRijec != '' && brojStranica > 0">
+    <img (click)="dohvatiSerije(1, kljucnaRijec)" src="./././assets/slike/strjelicaLL.png" alt="Prva stranica">
+    <img (click)="dohvatiSerije((stranica > 1 ? (stranica - 1) : 1), kljucnaRijec)" src="./././assets/slike/strjelicaL.png" alt="Prethodna stranica">
+    Stranica {{stranica}}/{{brojStranica}}
+    <img (click)="dohvatiSerije((stranica < brojStranica ? (stranica + 1) : brojStranica), kljucnaRijec)" src="./././assets/slike/strjelicaR.png" alt="Sljedeća stranica">
+    <img (click)="dohvatiSerije(brojStranica, kljucnaRijec)" src="./././assets/slike/strjelicaRR.png" alt="Zadnja stranica">
+</div>
+
+<ul>
+    <li *ngFor="let s of serije">
+        <div class="prikazSerije">
+            <h4>{{s.naziv}}</h4>
+            <p>{{s.opis}}</p>
+            
+            <a [routerLink]="['/detalji', s.id]">Detalji serije</a>
+        </div>
+    </li>
+</ul>

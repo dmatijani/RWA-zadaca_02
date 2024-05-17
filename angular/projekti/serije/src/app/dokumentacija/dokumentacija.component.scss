@@ -1,0 +1,78 @@
+.adminTablica {
+    border: 1px solid white;
+    border-collapse: collapse;
+    width: 85%;
+
+    tr {
+        margin: 0px;
+    }
+
+    th {
+        color: black;
+        background-color: rgb(255, 62, 62);
+    }
+
+    td {
+        color: white;
+    }
+
+    th,td {
+        border: 1px solid white;
+        text-align: center;
+        align-items: center;
+        padding: 5px 4px;
+    }
+}
+
+#dokumentacijaTablica1 {
+    tr {
+        background-color: rgb(58, 58, 58);
+    }
+
+    tr:nth-child(even) {
+        background-color: rgb(75, 75, 75);
+    }
+}
+
+#dokumentacijaTablica2 {
+    tbody tr {
+        background-color: rgb(58, 58, 58);
+    }
+
+    tbody tr:nth-child(even) {
+        background-color: rgb(75, 75, 75);
+    }
+}
+
+p {
+    margin-bottom: 12px;
+}
+
+.napravljeno1 {
+    background-color: rgb(0, 71, 0);
+}
+
+.napravljeno2 {
+    background-color: rgb(0, 94, 0);
+}
+
+.nijeNapravljeno1 {
+    background-color: rgb(71, 0, 0);
+}
+
+.nijeNapravljeno2 {
+    background-color: rgb(94, 0, 0);
+}
+
+.napravljenoSkoro {
+    background-color: rgb(105, 77, 0);
+}
+
+.centriraj {
+    text-align: center;
+    align-items: center;
+
+    table {
+        margin: auto;
+    }
+}

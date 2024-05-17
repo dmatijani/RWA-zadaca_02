@@ -1,0 +1,21 @@
+ul {
+    list-style-type: none;
+}
+
+.prikazSerije {
+    text-align: center;
+    align-items: center;
+    margin: 12px;
+    border: 12px solid #333;
+    background-color: #333;
+    border-radius: 16px;
+    margin-bottom: 18px;
+
+    h2,h3 {
+        color: rgb(255, 62, 62);
+    }
+    
+    button {
+        margin: 8px;
+    }
+}

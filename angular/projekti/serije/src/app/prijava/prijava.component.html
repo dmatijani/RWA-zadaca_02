@@ -1,0 +1,36 @@
+<h2>Prijava</h2>
+<p>Na sljedećoj formi možete se prijaviti.</p>
+
+<div>
+    <span style="font-weight: bold; color: red;">
+        Podaci za prijavu kao običan korisnik (ne traži TOTP):
+        <ul>
+            <li>Korisničko ime: <span style="font-style: italic;">obican</span></li>
+            <li>Lozinka: <span style="font-style: italic;">rwa</span></li>
+        </ul>
+
+        Podaci za prijavu kao administrator (ne traži TOTP):
+        <ul>
+            <li>Korisničko ime: <span style="font-style: italic;">admin</span></li>
+            <li>Lozinka: <span style="font-style: italic;">rwa</span></li>
+        </ul>
+
+        Podaci za prijavu kao običan korisnik sa TOTP:
+        <ul>
+            <li>Korisničko ime: <span style="font-style: italic;">totpobican</span></li>
+            <li>Lozinka: <span style="font-style: italic;">rwa</span></li>
+            <li>TOTP šifra (koristiti KeePassXC): <span style="font-style: italic;">AAAAKAAAAAAAIAAAARAAKAZAAMCRKCAFAACAOCIJAAARAAAGARAAEARIAAAAOAIAARBRACIJAZBAABZAAMEAIAAAAAAAEAAEAABAMAZ</span></li>
+        </ul>
+    </span>
+</div>
+
+<fieldset>
+    <legend>Korisnički podaci</legend>
+    <label for="korime">Korisničko ime:</label>
+    <input type="text" id="korime" name="korime" placeholder="Korisničko ime" #korime><br>
+    <label for="lozinka">Lozinka:</label>
+    <input type="password" id="lozinka" name="lozinka" placeholder="Lozinka" #lozinka><br>
+</fieldset>
+<button id="btnPosalji" value="posalji" (click)="prijaviKorisnika(korime.value, lozinka.value)">Prijavi se</button>
+
+<div id="porukaGreske" style="color: red">{{porukaGreske}}</div>

@@ -1,0 +1,49 @@
+.adminTablica {
+    border: 1px solid white;
+    border-collapse: collapse;
+    width: 85%;
+    max-width: 90%;
+
+    tr {
+        margin: 0px;
+    }
+
+    th {
+        color: black;
+        background-color: rgb(255, 62, 62);
+    }
+
+    td {
+        color: white;
+    }
+
+    th,td {
+        border: 1px solid white;
+        text-align: center;
+        align-items: center;
+        padding: 5px 4px;
+    }
+}
+
+#dnevnikTablica {
+    tbody {
+        tr {
+            background-color: rgb(58, 58, 58);
+        }
+    
+        tr:nth-child(even) {
+            background-color: rgb(75, 75, 75);
+        }
+    }
+}
+
+.centriraj {
+    text-align: center;
+    align-items: center;
+    overflow-x: auto;
+    max-width: 100%;
+
+    table {
+        margin: auto;
+    }
+}

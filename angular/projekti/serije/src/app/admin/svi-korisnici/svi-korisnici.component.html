@@ -1,0 +1,38 @@
+<h2>Svi korisnici</h2>
+<p>Svi korisnici u sustavu.</p>
+
+<div #dnevnikTablica class="centriraj">
+    <table class="adminTablica" id="dnevnikTablica">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Korime</th>
+                <th>Ime</th>
+                <th>Prezime</th>
+                <th>Email</th>
+                <th>Telefon</th>
+                <th>Adresa</th>
+                <th>Web stranica</th>
+                <th>Uloga</th>
+                <th>Brisanje</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr *ngFor="let k of korisnici">
+                <td>{{k.id != null ? k.id : "nije uneseno"}}</td>
+                <td>{{k.korime != null ? k.korime : "nije uneseno"}}</td>
+                <td>{{k.ime != null ? k.ime : "nije uneseno"}}</td>
+                <td>{{k.prezime != null ? k.prezime : "nije uneseno"}}</td>
+                <td>{{k.email != null ? k.email : "nije uneseno"}}</td>
+                <td>{{k.telefon != null ? k.telefon : "nije uneseno"}}</td>
+                <td>{{k.adresa != null ? k.adresa : "nije uneseno"}}</td>
+                <td>{{k.web_stranica != null ? k.web_stranica : "nije uneseno"}}</td>
+                <td>{{k.uloga != null ? k.uloga : "nije uneseno"}}</td>
+                <td>
+                    <button *ngIf="k.uloga != 'administrator'" (click)="obrisiKorisnika(k.korime)">Obriši</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

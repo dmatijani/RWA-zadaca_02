@@ -1,0 +1,23 @@
+<h2 *ngIf="naziv != undefined">{{naziv}}</h2>
+<div class="detaljiSerije">
+    <div class="osimGumba">
+        <div class="vertikalno">
+            <p *ngIf="opis != undefined">{{opis}}</p>
+            <a *ngIf="pocetna_putanja != undefined" [href]="pocetna_putanja">{{pocetna_putanja}}</a>
+        </div>
+
+        <div class="pola">
+            <img *ngIf="slika_putanja != undefined" [src]="slika_putanja" [alt]="naziv" width="300">
+
+            <div class="vertikalno">
+                <p *ngIf="broj_epizoda != undefined">Broj epizoda: {{broj_epizoda}}</p>
+                <p *ngIf="broj_sezona != undefined">Broj sezona: {{broj_sezona}}</p>
+                <p *ngIf="popularnost != undefined">Popularnost: {{popularnost}}</p>
+            </div>
+        </div>
+    </div>
+    
+    <button *ngIf="postojiPrijava()" (click)="dodajSerijuUFavorite()">Dodaj u favorite</button>
+    <div *ngIf="postojiPrijava()" id="porukaGreske" style="color: red">{{porukaGreske}}</div>
+    <div *ngIf="postojiPrijava()" id="porukaUspjeha" style="color: green">{{porukaUspjeha}}</div>
+</div>
